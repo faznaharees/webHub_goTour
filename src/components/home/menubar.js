@@ -4,6 +4,8 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import Search from '@material-ui/icons/Search';
 import AppsIcon from '@material-ui/icons/Apps';
 import ListIcon from '@material-ui/icons/List';
+import {withRouter } from 'react-router-dom'
+
 import { createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -33,9 +35,18 @@ const useStyles = makeStyles((theme) => ({
         <ThemeProvider theme={theme}>
       <div className={classes.mainbar}>
         <AppsIcon/>
+        &nbsp;         &nbsp; 
+        &nbsp; 
+        &nbsp; 
+
         <ListIcon/>
         <div style={{float:"right"}}>
             <FilterListIcon/>
+            &nbsp; 
+            &nbsp; 
+            &nbsp; 
+            &nbsp; 
+
             <ArrowDropDownIcon/>
         </div>
       </div>
@@ -43,5 +54,5 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   
-  export default Menubar;
+  export default withRouter(Menubar);
   

@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import LocationOn from '@material-ui/icons/LocationOn';
+import {withRouter } from 'react-router-dom'
 
 function CardComponent({name,distance,star,gender,img,stay,entry}) {
     const useStyles = makeStyles({
@@ -32,11 +33,11 @@ function CardComponent({name,distance,star,gender,img,stay,entry}) {
             <Typography gutterBottom variant="h5" component="h2">
               {name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textSecondary" component="p" style={{color:"blue"}}>
               
              <LocationOn style={{fontSize:"15px"}}/> {distance}km 
             </Typography>
-            <Typography>
+            <Typography style={{fontSize:"15px"}}>
             {
              gender!==undefined &&<div>
                  <br/>
@@ -46,6 +47,12 @@ function CardComponent({name,distance,star,gender,img,stay,entry}) {
 
              </div>
          }
+         {
+             entry!==undefined &&
+             entry===null && "Free entry"}
+          {entry!==undefined && 
+         entry!==null && <div>
+             Entry fee {entry}</div>} 
          {stay!==undefined && 
          stay===null && "Free Stay"}
               {stay!==undefined && 
@@ -54,8 +61,9 @@ function CardComponent({name,distance,star,gender,img,stay,entry}) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions style={{display:"inline"}}>
          <Rating name=" size-small" size="small" readOnly value={star}/>
+        <div style={{float:"right",right:"5px",fontSize:"13px"}}><u>Know more</u></div>
          </CardActions>
 
        
@@ -63,5 +71,5 @@ function CardComponent({name,distance,star,gender,img,stay,entry}) {
     );
   }
   
-  export default CardComponent;
+  export default withRouter(CardComponent);
   

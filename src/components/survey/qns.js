@@ -1,15 +1,26 @@
-import '../../main.css'
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar,IconButton,Toolbar,Typography,Button} from '@material-ui/core'
+import {AppBar,Card,CardActionArea,CardContent,IconButton,Toolbar,Typography,Button} from '@material-ui/core'
 import LocationOn from '@material-ui/icons/LocationOn';
 import Search from '@material-ui/icons/Search';
-import {withRouter } from 'react-router-dom'
-
+import {withRouter,Router } from 'react-router-dom'
+import React from 'react'
 import { createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-function Main() {
+import EachQuestion from './EachQuestion';
+import {Link} from 'react-router-dom'
+
+
+function Questions(props) {
+    const [qns,setQns] = React.useState([
+        {id:1,qn:"Are you a Beach person or Mountain person ?",option1:"Beach",option2:"Mountain",next:2},
+        {id:2,qn:"Do your prefer Indian food or Chinese food ?",option1:"Indian",option2:"Chinese",next:3},
+        {id:3,qn:"Do you like calm places or Crowded ones",option1:"Calm",option2:"Crowded",next:4},
+        {id:4,qn:"Do you prefer walking / Vehicles ?",option1:"Walking",option2:"Vehicles",next:null},
+    
+    
+    ])
     const theme = createMuiTheme({
         typography: {
           fontFamily: [
@@ -62,6 +73,10 @@ const useStyles = makeStyles((theme) => ({
         // paddingLeft:"20%",
     }
   }));
+  const [id,setId] = React.useState(props.match.params.id)
+  const [item,setItem] = React.useState(
+      qns[props.match.params.id-1]
+  )
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
@@ -78,28 +93,24 @@ const useStyles = makeStyles((theme) => ({
             </Toolbar>
           </AppBar>
           <div className={classes.orange} style={{display:"flex"}}>
-            <div style={{margin:"auto",fontFamily:'Montserrat'}}>
+            <div style={{margin:"auto"}}>
+               
+<Card>
+               <CardActionArea>
+                    <CardContent>
+                        {qns[props.match.params.id -1].qn}
+                        <br/>
+                        <br/>
+                        
+                        <div style={{display:"inline",marginBottom:"30px"}} className={classes.buttons}>
+                       <Link to={`${qns[props.match.params.id -1].next !== null ? `/survey/${qns[props.match.params.id -1].next.toString()}`: `/home`}  `}> <Button className={classes.button} style={{float:"right"}} width="50%">{qns[props.match.params.id -1].option1}</Button></Link>
 
-              <div style={{float:"left",color:"white"}}>What do you want to find in </div>
-              <div style={{float:"right",marginTop:"-12px",fontSize:"20px",fontWeight:"bold"}}>
-                  
-                  <IconButton>
-                      <LocationOn/></IconButton>
-                      
-                      Trivandrum</div>
-            <br/>
-        <Input
-        placeholder="Search your places"
-        disableUnderline
-        fullWidth
-          id="input-with-icon-adornment"
-          className={classes.input}
-          endAdornment={
-            <InputAdornment position="end" className={classes.end}>
-              <Search />
-            </InputAdornment>
-          }
-        />
+                       <Link to={`${qns[props.match.params.id -1].next !== null ? `/survey/${qns[props.match.params.id -1].next.toString()}`: `/home`}  `}> <Button className={classes.button} style={{float:"left"}} width="50%">{qns[props.match.params.id -1].option2}</Button></Link>
+                        </div>
+                    </CardContent>
+               </CardActionArea>
+            </Card>                    
+             
                       </div>
           </div>
       </div>
@@ -107,5 +118,4 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   
-  export default withRouter(Main);
-  
+  export default withRouter(Questions);
