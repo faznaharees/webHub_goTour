@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/webHub_goTour/static/css/main.03260ee1.chunk.css",
-    "main.js": "/webHub_goTour/static/js/main.6886d9a2.chunk.js",
-    "main.js.map": "/webHub_goTour/static/js/main.6886d9a2.chunk.js.map",
+    "main.js": "/webHub_goTour/static/js/main.c4865694.chunk.js",
+    "main.js.map": "/webHub_goTour/static/js/main.c4865694.chunk.js.map",
     "runtime-main.js": "/webHub_goTour/static/js/runtime-main.3f351f50.js",
     "runtime-main.js.map": "/webHub_goTour/static/js/runtime-main.3f351f50.js.map",
     "static/js/2.e8717a46.chunk.js": "/webHub_goTour/static/js/2.e8717a46.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3f351f50.js",
     "static/js/2.e8717a46.chunk.js",
     "static/css/main.03260ee1.chunk.css",
-    "static/js/main.6886d9a2.chunk.js"
+    "static/js/main.c4865694.chunk.js"
   ]
 }
