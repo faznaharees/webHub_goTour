@@ -54,5 +54,5 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   
-  export default withRouter(Menubar);
+  export default (Menubar);
   

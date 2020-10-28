@@ -132,5 +132,5 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   
-  export default withRouter(Body);
+  export default (Body);
   

@@ -1,10 +1,10 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,Redirect,
   Route,
-  Link, BrowserRouter
+  Link, withRouter
 } from "react-router-dom";
 import Questions from './components/survey/qns'
 import MainPage from './components/MainPage';
@@ -17,8 +17,8 @@ class App extends React.Component{
       <BrowserRouter>
         <Switch>
           <Route exact path="/survey/:id" component={Questions}/>
-          <Route path="/home" component={MainPage}/>
-          <Route exact path="/" render={() => <Redirect to="/survey/1" />} exact={true} />
+          <Route exact path="/home" component={MainPage}/>
+          <Route exact path="/webHub_goTour" render={() => <Redirect to="/home" />} exact={true} />
 
         </Switch>
       </BrowserRouter>
@@ -29,3 +29,4 @@ class App extends React.Component{
 }
 
 export default App;
+ReactDOM.render(<App/>,document.getElementById("root"))

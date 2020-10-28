@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,IconButton,Toolbar,Typography,Button} from '@material-ui/core'
 import LocationOn from '@material-ui/icons/LocationOn';
 import Search from '@material-ui/icons/Search';
-import {withRouter } from 'react-router-dom'
+import {Link, withRouter } from 'react-router-dom'
 
 import { createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
 
     },
     bold:{
-        fontWeight:"bold"
+        fontWeight:"bold",
+        color:"black"
     }
   ,
     orange: {
@@ -72,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
                 <Typography variant="h6" className= {classes.title}>
                 GoTour
                 </Typography>
-                <Button color="inherit" className={classes.bold}>Query</Button>
+               <Link to="survey/1"> <Button color="inherit" className={classes.bold}>Survey</Button></Link>
                 <Button color="inherit" className={classes.bold}>Login</Button>
 
             </Toolbar>
@@ -107,5 +108,5 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   
-  export default withRouter(Main);
+  export default Main;
   

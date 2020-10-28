@@ -71,5 +71,5 @@ function CardComponent({name,distance,star,gender,img,stay,entry}) {
     );
   }
   
-  export default withRouter(CardComponent);
+  export default (CardComponent);
   
